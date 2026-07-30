@@ -3,7 +3,6 @@ import streamlit as st
 st.title('🎈 App Name')
 
 st.write('Hello world!')
-
 import joblib
 import numpy as np
 import streamlit as st
@@ -17,8 +16,8 @@ st.set_page_config(
 # 2. Load the trained Joblib Model
 @st.cache_resource
 def load_model():
-  # Replace 'model.joblib' with your actual model file name if different
-  model = joblib.load("model.joblib")
+  # Loaded model file name changed to KNN.joblib
+  model = joblib.load("KNN.joblib")
   return model
 
 
