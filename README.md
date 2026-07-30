@@ -1,25 +1,23 @@
-# 📦 Streamlit App Starter Kit 
+# Using KNN model for this
 ```
-⬆️ (Replace above with your app's name)
-```
+# Body Type Prediction App 🏋️‍♂️
 
-Description of the app ...
+A lightweight, interactive web application built with **Streamlit** and **scikit-learn** that predicts a user's body type based on their height and weight using a pre-trained machine learning model (K-Nearest Neighbors / KNN).
 
-## Demo App
+---
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+## 🚀 Features
+- **Interactive UI:** Clean, modern input fields for Height (cm) and Weight (kg).
+- **Instant Predictions:** Uses a serialized `joblib` machine learning model to evaluate inputs instantly.
+- **Responsive Layout:** Optimized for both desktop and mobile screens.
 
-## GitHub Codespaces
+---
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
-
-## Section Heading
-
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+## 🛠️ Project Structure
+```text
+repository-root/
+│
+├── streamlit_app.py              # Main Streamlit application script
+├── model.joblib        # Pre-trained ML model
+├── requirements.txt    # Python package dependencies
+└── README.md           # Project documentation
