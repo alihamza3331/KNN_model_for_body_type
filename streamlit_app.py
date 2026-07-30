@@ -13,20 +13,18 @@ st.set_page_config(
 )
 
 
-# 2. Load the trained Joblib Model and Scaler
+# 2. Load the trained Joblib Model
 @st.cache_resource
-def load_artifacts():
+def load_model():
+    # Loaded model file name changed to KNN.joblib
     model = joblib.load("KNN.joblib")
-    # You MUST also save and load your scaler if you used one during training!
-    scaler = joblib.load("scaler.joblib") 
-    return model, scaler
+    return model
 
 
 try:
-    model, scaler = load_artifacts()
+    model = load_model()
 except Exception as e:
-    st.error(f"Error loading model or scaler: {e}")
-    st.info("Make sure 'KNN.joblib' and 'scaler.joblib' are in your project folder.")
+    st.error(f"Error loading the model: {e}")
     st.stop()
 
 # 3. User Interface Design
@@ -38,6 +36,7 @@ st.write(
 
 st.markdown("---")
 
+# Input widgets for features based on your dataset structure
 col1, col2 = st.columns(2)
 
 with col1:
@@ -47,6 +46,7 @@ with col1:
         max_value=250.0,
         value=170.0,
         step=0.5,
+        help="Enter your height in centimeters",
     )
 
 with col2:
@@ -56,10 +56,13 @@ with col2:
         max_value=200.0,
         value=70.0,
         step=0.5,
+        help="Enter your weight in kilograms",
     )
 
 st.markdown("---")
 
+# Define label mapping for numerical outputs to column/category names
+# Adjust the mapping order if your model encodes them differently
 body_type_mapping = {
     0: "Normal",
     1: "Overweight",
@@ -68,27 +71,23 @@ body_type_mapping = {
 
 # 4. Prediction Logic
 if st.button("Predict Body Type", type="primary", use_container_width=True):
-    # Prepare input features as a 2D array
+    # Prepare input features as a 2D array matching model expectation
     input_data = np.array([[height_cm, weight_kg]])
 
     try:
-        # CRITICAL: Scale the input data just like you did during training
-        scaled_input_data = scaler.transform(input_data)
-
-        # Make prediction using the scaled data
-        prediction = model.predict(scaled_input_data)
+        # Make prediction
+        prediction = model.predict(input_data)
         numeric_result = prediction[0]
         
         # Map numerical prediction to category name
         result = body_type_mapping.get(numeric_result, str(numeric_result))
 
+        # Display result with custom styling
         st.success(f"### Predicted Body Type: **{result}**")
 
     except Exception as e:
         st.error(f"An error occurred during prediction: {e}")
 
-st.markdown("---")
-st.caption("Built with Streamlit and scikit-learn.")
 # Footer info
 st.markdown("---")
 st.caption("Built with Streamlit and scikit-learn.")
