@@ -88,4 +88,4 @@ if st.button("Predict Body Type", type="primary", use_container_width=True):
         st.error(f"An error occurred during prediction: {e}")
 
 st.markdown("---")
-st.caption("Built with Streamlit and scikit-learn.")
+st.caption("Built by Ali Hamza thanks sir zafer your a Gem.")
