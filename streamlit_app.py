@@ -1,8 +1,8 @@
 import streamlit as st
 
-st.title('🎈 App Name')
+st.title('🎈KNN model for Predicting the Body Type ')
 
-st.write('Hello world!')
+st.write('Build By Ali Hamza and thanks to Sir Zafer for teching us how to make app like this')
 import joblib
 import numpy as np
 import streamlit as st
