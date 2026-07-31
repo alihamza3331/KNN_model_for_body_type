@@ -1,4 +1,15 @@
-# Using KNN model for this
+# 🎈KNN model for Predicting the Body Type 🏋️‍♂️ 
+
+open demo app either clicking on link or copy the url.
+
+Website streamlit app link:
+[🏋️‍♂️ Body Type Prediction App](https://knn-model.streamlit.app/)
+
+or 
+
+copy this url: https://knn-model.streamlit.app/
+
+
 ```
 # Body Type Prediction App 🏋️‍♂️
 
