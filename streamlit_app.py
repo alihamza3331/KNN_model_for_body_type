@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title('🎈KNN model for Predicting the Body Type ')
 
-st.write('Build By Ali Hamza and thanks to Sir Zafer for teching us how to make app like this')
+st.write('Built by Ali Hamza & a special thanks to Sir Zafar for teaching us how to create apps like this')
 import joblib
 import numpy as np
 import streamlit as st
